@@ -9,6 +9,8 @@
 lvim.format_on_save.enabled = true
 
 
+-- Disabled because it caused an error and I don't know if i need it
+lvim.builtin.bufferline.active = false
 
 
 -- Nvim Tree
