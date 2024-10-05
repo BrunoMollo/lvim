@@ -23,6 +23,7 @@ lvim.builtin.nvimtree.setup.view.float.open_win_config.width = 80
 lvim.builtin.nvimtree.setup.view.float.open_win_config.height = 25
 
 lvim.builtin.nvimtree.setup.filters.git_ignored = true
+lvim.builtin.nvimtree.setup.filters.dotfiles = true
 
 lvim.builtin.nvimtree.setup.renderer.indent_width = 4
 lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
