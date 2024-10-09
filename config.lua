@@ -4,7 +4,6 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
-lvim.format_on_save.enabled = true
 
 -- Disabled because it caused an error and I don't know if i need it
 lvim.builtin.bufferline.active = false
@@ -46,5 +45,16 @@ lvim.plugins = {
       })
     end,
 
+  },
+}
+
+
+-- Formatters
+lvim.format_on_save.enabled = true
+require("lvim.lsp.null-ls.formatters").setup {
+  {
+    name = "prettierd",
+    ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
+    filetypes = { "typescript", "typescriptreact", "javascript", "svelte" },
   },
 }
