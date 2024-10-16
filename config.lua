@@ -28,6 +28,12 @@ lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
 
 lvim.plugins = {
   {
+    'nvim-lua/plenary.nvim'
+  },
+  {
+    'nvim-pack/nvim-spectre'
+  },
+  {
     "BrunoMollo/supermaven-nvim",
     config = function()
       require("supermaven-nvim").setup({
