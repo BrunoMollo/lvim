@@ -43,5 +43,13 @@
       "  exaust(res);",
       "}"
     ]
+  },
+  "jsdocs": {
+    "prefix": "docs",
+    "body": [
+      "/**",
+      " * @param {} ",
+      " */"
+    ]
   }
 }
