@@ -177,13 +177,12 @@ lvim.plugins = {
         name = "Obsidian",
         s = { "<cmd>ObsidianSearch<CR>", "Search" },
         n = { "<cmd>ObsidianNew<CR>", "New" },
+        t = { ':lua vim.cmd("vsp ~/vaults/iboux/todos.md")<CR>', "See todos" }
       }
-      vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>")
-      vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>")
     end
+
   }
 }
-
 
 
 -- Formatters
