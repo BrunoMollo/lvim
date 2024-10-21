@@ -101,11 +101,17 @@ lvim.plugins = {
           {
             name = "iboux",
             path = "~/vaults/iboux",
+            template_dir = "~/vaults/templates/note.md",
           },
         },
+        templates = {
+          folder = "~/vaults/templates",
+          date_format = "%Y-%m-%d-%a",
+          time_format = "%H:%M",
+        },
         ui = {
-          enable = true,    -- set to false to disable all additional syntax features
-          update_debounce = 200, -- update delay after a text change (in milliseconds)
+          enable = true,          -- set to false to disable all additional syntax features
+          update_debounce = 200,  -- update delay after a text change (in milliseconds)
           max_file_length = 5000, -- disable UI features for files with more than this many lines
           -- Define how various check-boxes are displayed
           checkboxes = {
@@ -144,8 +150,36 @@ lvim.plugins = {
             ObsidianBlockID = { italic = true, fg = "#89ddff" },
             ObsidianHighlightText = { bg = "#75662e" },
           },
-        }
+        },
+        -- Optional, customize how note IDs are generated given an optional title.
+        ---@param title string|?
+        ---@return string
+        note_id_func = function(title)
+          -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+          -- In this case a note with the title 'My new note' will be given an ID that looks
+          -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+          local prefix = ""
+          if title ~= nil then
+            -- If title is given, transform it into valid file name.
+            prefix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+          else
+            -- If title is nil, just add 4 random uppercase letters to the suffix.
+            for _ = 1, 4 do
+              prefix = prefix .. string.char(math.random(65, 90))
+            end
+          end
+          return prefix .. "-" .. tostring(os.time())
+        end,
+
       })
+
+      lvim.builtin.which_key.mappings["o"] = {
+        name = "Obsidian",
+        s = { "<cmd>ObsidianSearch<CR>", "Search" },
+        n = { "<cmd>ObsidianNew<CR>", "New" },
+      }
+      vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>")
+      vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>")
     end
   }
 }
