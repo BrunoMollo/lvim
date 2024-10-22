@@ -186,6 +186,13 @@ lvim.plugins = {
 
 lvim.keys.normal_mode["<leader>q"] = false
 
+lvim.builtin.which_key.mappings[";"] = {}
+lvim.builtin.which_key.mappings["/"] = {}
+lvim.builtin.which_key.mappings["h"] = {}
+lvim.builtin.which_key.mappings["T"] = {}
+
+
+
 lvim.builtin.which_key.mappings["q"] = {
   name = "Fixlist",
   c = { "<cmd>copen<CR>", "Open" },
