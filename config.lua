@@ -184,6 +184,17 @@ lvim.plugins = {
   }
 }
 
+lvim.keys.normal_mode["<leader>q"] = false
+
+lvim.builtin.which_key.mappings["q"] = {
+  name = "Fixlist",
+  c = { "<cmd>copen<CR>", "Open" },
+  n = { "<cmd>cnext<CR>", "Next" },
+  p = { "<cmd>cprev<CR>", "Prev" },
+}
+
+
+
 
 -- Formatters
 lvim.format_on_save.enabled = true
