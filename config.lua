@@ -8,6 +8,7 @@
 -- Disabled because it caused an error and I don't know if i need it
 lvim.builtin.bufferline.active = false
 
+lvim.builtin.project.patterns = { ".git" }
 
 -- Nvim Tree
 lvim.builtin.nvimtree.setup.view.float.quit_on_focus_loss = true
