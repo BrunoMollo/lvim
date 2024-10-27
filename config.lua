@@ -223,6 +223,6 @@ require("lvim.lsp.null-ls.formatters").setup {
   {
     name = "prettierd",
     ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
-    filetypes = { "typescript", "typescriptreact", "javascript", "svelte" },
+    filetypes = { "typescript", "typescriptreact", "javascript", "svelte", "handlebars", "css", "scss", "less", "html", "json", "yaml", "markdown", "graphql", "vue", "hbs" },
   },
 }
