@@ -202,8 +202,10 @@ lvim.plugins = {
       vim.keymap.set('n', '3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
       vim.keymap.set('n', '4', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
     end
+  },
+  {
+    'tpope/vim-surround'
   }
-
 }
 
 lvim.keys.normal_mode["<leader>q"] = false
