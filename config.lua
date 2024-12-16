@@ -236,3 +236,9 @@ require("lvim.lsp.null-ls.formatters").setup {
     filetypes = { "typescript", "typescriptreact", "javascript", "svelte" },
   },
 }
+
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*",
+  command = ":silent! !rm '\\'"
+})
