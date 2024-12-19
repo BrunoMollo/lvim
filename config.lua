@@ -10,7 +10,6 @@ lvim.builtin.bufferline.active = false
 
 lvim.builtin.project.patterns = { ".git" }
 
--- Nvim Tree
 lvim.builtin.nvimtree.setup.view.float.quit_on_focus_loss = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.nvimtree.setup.view.float.enable = true
@@ -59,10 +58,10 @@ lvim.plugins = {
         },
         log_level = "info",                -- set to "off" to disable logging completely
         disable_inline_completion = false, -- disables inline completion for use with cmp
-        disable_keymaps = false,           -- disables built in keymaps for more manual control
+        disable_keymaps = false,           -- disables built in key maps for more manual control
         condition = function()
           return false
-        end -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
+        end -- condition to check for stopping SuperMaven, `true` means to stop SuperMaven when the condition is true.
       })
     end,
 
@@ -71,7 +70,7 @@ lvim.plugins = {
     "stevearc/aerial.nvim",
     config = function()
       require("aerial").setup({
-        -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+        -- optionally use on_attach to set key maps when aerial has attached to a buffer
         on_attach = function(bufnr)
           -- Jump forwards/backwards with '{' and '}'
           vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
@@ -84,7 +83,7 @@ lvim.plugins = {
           preserve_equality = false,
         },
       })
-      -- You probably also want to set a keymap to toggle aerial
+      -- You probably also want to set a key map to toggle aerial
       vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
     end
   },
@@ -122,9 +121,6 @@ lvim.plugins = {
             [">"] = { char = "", hl_group = "ObsidianRightArrow" },
             ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
             ["!"] = { char = "", hl_group = "ObsidianImportant" },
-            -- Replace the above with this if you don't have a patched font:
-            -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-            -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
 
             -- You can also add more custom ones...
           },
@@ -132,13 +128,11 @@ lvim.plugins = {
           bullets = { char = "•", hl_group = "ObsidianBullet" },
           external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
           -- Replace the above with this if you don't have a patched font:
-          -- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
           reference_text = { hl_group = "ObsidianRefText" },
           highlight_text = { hl_group = "ObsidianHighlightText" },
           tags = { hl_group = "ObsidianTag" },
           block_ids = { hl_group = "ObsidianBlockID" },
           hl_groups = {
-            -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
             ObsidianTodo = { bold = true, fg = "#f78c6c" },
             ObsidianDone = { bold = true, fg = "#89ddff" },
             ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
@@ -232,7 +226,7 @@ lvim.format_on_save.enabled = true
 require("lvim.lsp.null-ls.formatters").setup {
   {
     name = "prettierd",
-    ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
+    ---@usage only start in these file types, by default it will attach to all file types it supports
     filetypes = { "typescript", "typescriptreact", "javascript", "svelte" },
   },
 }
@@ -242,3 +236,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*",
   command = ":silent! !rm '\\'"
 })
+
+
+-- Spell checking (to download the es spelllang I had to run :setlocal spelllang=es,en)
+lvim.builtin.nvimtree.setup.disable_netrw = false
+vim.opt.spelllang = 'en_us,es'
+vim.opt.spell = true
