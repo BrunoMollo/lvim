@@ -242,3 +242,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 lvim.builtin.nvimtree.setup.disable_netrw = false
 vim.opt.spelllang = 'en_us,es'
 vim.opt.spell = true
+
+
+--- This is really important to work with python
+lvim.keys.visual_mode["<Tab>"] = ">gv"
+lvim.keys.visual_mode["<S-Tab>"] = "<gv"
