@@ -242,6 +242,20 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 lvim.builtin.nvimtree.setup.disable_netrw = false
 vim.opt.spelllang = 'en_us,es'
 vim.opt.spell = true
+vim.api.nvim_set_keymap('n', 'zg', '', {
+  noremap = true,
+  silent = true,
+  callback = function()
+    local word = vim.fn.expand('<cword>')     -- Get the current word
+    local confirm = vim.fn.input("Add '" .. word .. "' to spell check? (y/n): ")
+    if confirm:lower() == 'y' then
+      vim.cmd('normal! zg')
+      print("'" .. word .. "' added to spell checker.")
+    else
+      print("Cancelled adding '" .. word .. "' to spell checker.")
+    end
+  end
+})
 
 
 --- This is really important to work with python
