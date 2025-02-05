@@ -67,27 +67,6 @@ lvim.plugins = {
 
   },
   {
-    "stevearc/aerial.nvim",
-    config = function()
-      require("aerial").setup({
-        -- optionally use on_attach to set key maps when aerial has attached to a buffer
-        on_attach = function(bufnr)
-          -- Jump forwards/backwards with '{' and '}'
-          vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-          vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-        end,
-        layout = {
-          max_width = { 40, 0.2 },
-          width = nil,
-          min_width = 10,
-          preserve_equality = false,
-        },
-      })
-      -- You probably also want to set a key map to toggle aerial
-      vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
-    end
-  },
-  {
     "epwalsh/obsidian.nvim",
     config = function()
       vim.opt.conceallevel = 1
@@ -246,7 +225,7 @@ vim.api.nvim_set_keymap('n', 'zg', '', {
   noremap = true,
   silent = true,
   callback = function()
-    local word = vim.fn.expand('<cword>')     -- Get the current word
+    local word = vim.fn.expand('<cword>') -- Get the current word
     local confirm = vim.fn.input("Add '" .. word .. "' to spell check? (y/n): ")
     if confirm:lower() == 'y' then
       vim.cmd('normal! zg')
