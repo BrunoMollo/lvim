@@ -240,3 +240,37 @@ vim.api.nvim_set_keymap('n', 'zg', '', {
 --- This is really important to work with python
 lvim.keys.visual_mode["<Tab>"] = ">gv"
 lvim.keys.visual_mode["<S-Tab>"] = "<gv"
+
+lvim.builtin.treesitter.ensure_installed = {
+  'javascript',
+  'php',
+  'html',
+  'css',
+  'json',
+  'typescript',
+  'lua',
+  'markdown',
+  'yaml',
+  'toml',
+  'bash',
+  'dockerfile',
+}
+
+
+lvim.builtin.treesitter.on_config_done = function()
+  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+  parser_config.blade = {
+    install_info = {
+      url = "https://github.com/EmranMR/tree-sitter-blade",
+      files = { "src/parser.c" },
+      branch = "main",
+    },
+    filetype = "blade",
+  }
+end
+
+vim.filetype.add({
+  pattern = {
+    [".*%.blade%.php"] = "blade",
+  },
+})
