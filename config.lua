@@ -89,6 +89,7 @@ lvim.plugins = {
   {
     'tpope/vim-surround'
   }
+
 }
 
 lvim.keys.normal_mode["<leader>q"] = false
@@ -118,7 +119,12 @@ require("lvim.lsp.null-ls.formatters").setup {
     ---@usage only start in these file types, by default it will attach to all file types it supports
     filetypes = { "typescript", "typescriptreact", "javascript", "svelte" },
   },
+  {
+    name = "pint",
+    filetypes = { "php" }
+  }
 }
+
 
 
 vim.api.nvim_create_autocmd("BufWritePost", {
