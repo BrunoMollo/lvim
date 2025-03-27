@@ -6,6 +6,100 @@
 --
 
 -- Disabled because it caused an error and I don't know if i need it
+--
+
+
+
+lvim.builtin.which_key.mappings["ss"] = {
+  name = "Search Laravel", -- Grupo "Search"
+  k = { function()
+    require("telescope.builtin").find_files({
+      cwd = "config",
+      prompt_title = "Configuration Files"
+    })
+  end, "config" },
+
+  c = {
+    function()
+      require("telescope.builtin").find_files({
+        cwd = "./app/Http/Controllers",
+        prompt_title = "Controllers"
+      })
+    end
+    , "Controllers" },
+
+  m = {
+    function()
+      require("telescope.builtin").find_files({
+        cwd = "./app/Http/Middleware",
+        prompt_title = "Middleware"
+      })
+    end
+    , "Middleware" },
+
+  e = {
+    function()
+      require("telescope.builtin").find_files({
+        cwd = "./app/Models",
+        prompt_title = "Models"
+      })
+    end
+    , "Models" },
+
+
+  v = {
+    function()
+      require("telescope.builtin").find_files({
+        cwd = "./resources/views",
+        prompt_title = "Views"
+      })
+    end
+    , "Views" },
+
+
+  r = {
+    function()
+      require("telescope.builtin").find_files({
+        cwd = "./routes",
+        prompt_title = "routes"
+      })
+    end
+    , "routes" },
+
+
+  d = {
+    f = {
+      function()
+        require("telescope.builtin").find_files({
+          cwd = "./database/factories",
+          prompt_title = "factories"
+        })
+      end, 'factories'
+    },
+    s = {
+      function()
+        require("telescope.builtin").find_files({
+          cwd = "./database/seeders",
+          prompt_title = "seeders"
+        })
+      end, 'seeders'
+    },
+    m = {
+      function()
+        require("telescope.builtin").find_files({
+          cwd = "./database/migrations",
+          prompt_title = "migrations"
+        })
+      end, 'migrations'
+    }
+    ,
+    "database"
+  },
+  "Laravel Search"
+
+}
+
+
 lvim.builtin.bufferline.active = false
 
 lvim.builtin.project.patterns = { ".git" }
