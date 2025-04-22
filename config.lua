@@ -266,6 +266,20 @@ lvim.builtin.treesitter.ensure_installed = {
   'dockerfile',
 }
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "php", "blade" },
+  callback = function()
+    vim.lsp.start({
+      name = "laravel-ls",
+      cmd = { '/home/bruno/go/bin/laravel-ls' },
+      -- if you want to recompile everytime
+      -- the language server is started.
+      -- Uncomment this line instead
+      -- cmd = { '/path/to/laravel-ls/start.sh' },
+      root_dir = vim.fn.getcwd(),
+    })
+  end
+})
 
 lvim.builtin.treesitter.on_config_done = function()
   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
