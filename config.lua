@@ -142,7 +142,7 @@ lvim.plugins = {
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-pack/nvim-spectre' },
   {
-    "BrunoMollo/supermaven-nvim",
+    "supermaven-inc/supermaven-nvim",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
