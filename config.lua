@@ -298,3 +298,11 @@ vim.filetype.add({
     [".*%.blade%.php"] = "blade",
   },
 })
+
+lvim.builtin.telescope.defaults.file_ignore_patterns = {
+  ".git",
+  "public/tenant/themes/**/*",    -- this is due to Betfunnels
+  "public/tenant/templates/**/*", -- this is due to Betfunnels
+  "vendor/*"
+
+}
